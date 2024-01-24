@@ -4,7 +4,7 @@ import React from "react";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue } from "@nextui-org/react";
 
 async function getData() {
-	const res = await fetch('https://fakestoreapi.com/products/')
+	const res = await fetch('http://localhost:8091/products')
 	if (!res.ok) {
 		throw new Error('Failed to fetch data')
 	}
@@ -39,7 +39,7 @@ export default async function InventarioPage() {
 							<TableCell>{row.title}</TableCell>
 							<TableCell>{row.category}</TableCell>
 							<TableCell>{row.price}</TableCell>
-							<TableCell>{randomIntFromInterval(1, 10)}</TableCell>
+							<TableCell>{row.stock}</TableCell>
 						</TableRow>
 					)}
 				</TableBody>
