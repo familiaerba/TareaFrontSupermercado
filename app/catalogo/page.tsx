@@ -2,7 +2,7 @@
 import { Card, CardBody, CardFooter, Image, CardHeader, Accordion, AccordionItem } from "@nextui-org/react";
 
 async function getData() {
-	const res = await fetch('https://fakestoreapi.com/products/')
+	const res = await fetch('http://localhost:8091/products')
 	if (!res.ok) {
 		throw new Error('Failed to fetch data')
 	}
@@ -18,7 +18,7 @@ export default async function CatalogoPage() {
 
 	return (
 		<div>
-			<div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+			<div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
 				{data.map((item, index) => (
 					<div>
 						<Card shadow="sm" key={index}>
@@ -29,7 +29,7 @@ export default async function CatalogoPage() {
 								<Image
 									className="object-contain h-[150px] w-[150px]"
 									alt="Card background"
-									src={item.image}
+									src={item.img}
 									width="100%"
 								/>
 							</CardBody>
